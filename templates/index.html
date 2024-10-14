@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal Plant Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F9FBE7; /* Light yellow background */
+            color: #5D4037; /* Brown for text */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #7B9A4A; /* Greenish color */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #FFFFFF; /* White form background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            display: inline-block;
+        }
+        label {
+            font-weight: bold;
+            margin: 10px 0;
+            display: block;
+            color: #5D4037; /* Dark brown for labels */
+        }
+        select {
+            width: 220px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #7B9A4A; /* Green border */
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            background-color: #7B9A4A; /* Green button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #5D8B42; /* Darker green on hover */
+        }
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #7B9A4A; /* Green button */
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .back-link:hover {
+            background-color: #5D8B42; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Your State or Soil Type</h1>
+    <form action="/recommend" method="POST">
+        <label for="state">Select State:</label>
+        <select name="state" id="state" required>
+            <option value="">--Select State--</option>
+            {% for state in states %}
+                <option value="{{ state }}">{{ state }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="soil_type">Or Select Soil Type:</label>
+        <select name="soil_type" id="soil_type">
+            <option value="">--Select Soil Type--</option>
+            {% for soil in soils %}
+                <option value="{{ soil }}">{{ soil }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" class="back-link" value="Get Recommendations">
+    </form>
+</body>
+</html>

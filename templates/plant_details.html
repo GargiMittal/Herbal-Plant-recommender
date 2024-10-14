@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ plant_name }} Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F9FBE7; /* Light yellow background */
+            color: #5D4037; /* Brown for text */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .details-container {
+            background-color: #FFFFFF; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        h1 {
+            color: #7B9A4A; /* Greenish color */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin: 10px 0;
+            color: #5D4037; /* Dark brown for text */
+        }
+        strong {
+            color: #7B9A4A; /* Greenish color for strong text */
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #7B9A4A; /* Green button */
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #5D8B42; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="details-container">
+        <h1>{{ plant_name }} Details</h1>
+
+        {% if plant_info %}
+            <p><strong>Scientific Name:</strong> {{ plant_info['Scientific Name'] }}</p>
+            <p><strong>Uses:</strong> {{ plant_info['Uses'] }}</p>
+            <p><strong>Description:</strong> {{ plant_info['Description'] }}</p>
+            <p><strong>Growing Conditions:</strong> {{ plant_info['Growing Conditions'] }}</p>
+        {% else %}
+            <p>Details not available for this plant.</p>
+        {% endif %}
+    </div>
+
+    <a class="back-link" href="/">Back to Selection</a>
+</body>
+</html>
