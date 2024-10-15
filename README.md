@@ -1,5 +1,5 @@
 
-# Herbal Plant Recommender
+# HerbaGuide
 
 ### Overview
 Herbal Plant Recommender is a Python Flask-based web application that helps users discover suitable herbal plants for their homes or gardens based on their Indian state and the prevalent soil type. The system promotes Ayurveda by suggesting plants that can thrive in the user's region, contributing to a healthier lifestyle and environment.
