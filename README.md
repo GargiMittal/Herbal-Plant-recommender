@@ -4,6 +4,11 @@
 ### Overview
 Herbal Plant Recommender is a Python Flask-based web application that helps users discover suitable herbal plants for their homes or gardens based on their Indian state and the prevalent soil type. The system promotes Ayurveda by suggesting plants that can thrive in the user's region, contributing to a healthier lifestyle and environment.
 
+###  Live Demo
+https://herbal-plant-recommender.onrender.com/
+
+---
+
 ### Features
 - **State Selection**: Users can select their Indian state from a dropdown menu.
 - **Soil Type Recommendation**: Based on the selected state, the system identifies the most common soil type.
