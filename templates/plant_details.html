@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ plant_name }} Details</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #F9FBE7; /* Light yellow background */
-            color: #5D4037; /* Brown for text */
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .details-container {
-            background-color: #FFFFFF; /* White background */
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            margin: 0 auto;
-            max-width: 600px;
-        }
-        h1 {
-            color: #7B9A4A; /* Greenish color */
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2em;
-            line-height: 1.5;
-            margin: 10px 0;
-            color: #5D4037; /* Dark brown for text */
-        }
-        strong {
-            color: #7B9A4A; /* Greenish color for strong text */
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: white;
-            background-color: #7B9A4A; /* Green button */
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .back-link:hover {
-            background-color: #5D8B42; /* Darker green on hover */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ plant_name }} — Botanica Indica</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="details-container">
-        <h1>{{ plant_name }} Details</h1>
 
+  <!-- NAV -->
+  <nav class="nav-bar">
+    <a class="nav-logo" href="/">Botanica <span>Indica</span></a>
+    <a class="nav-classic-btn" href="/classic">Classic UI</a>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <div class="details-card animate-in">
+
+      <div class="details-hero">
+        <h1 class="details-plant-name">{{ plant_name }}</h1>
         {% if plant_info %}
-            <p><strong>Scientific Name:</strong> {{ plant_info['Scientific Name'] }}</p>
-            <p><strong>Uses:</strong> {{ plant_info['Uses'] }}</p>
-            <p><strong>Description:</strong> {{ plant_info['Description'] }}</p>
-            <p><strong>Growing Conditions:</strong> {{ plant_info['Growing Conditions'] }}</p>
-        {% else %}
-            <p>Details not available for this plant.</p>
+          <p class="details-scientific">{{ plant_info['Scientific Name'] }}</p>
         {% endif %}
+      </div>
+
+      <div class="details-body">
+        {% if plant_info %}
+
+          <div class="detail-block animate-in animate-in-delay-1">
+            <span class="detail-label">Uses</span>
+            <p class="detail-value">{{ plant_info['Uses'] }}</p>
+          </div>
+
+          <div class="detail-separator"></div>
+
+          <div class="detail-block animate-in animate-in-delay-2">
+            <span class="detail-label">Description</span>
+            <p class="detail-value">{{ plant_info['Description'] }}</p>
+          </div>
+
+          <div class="detail-separator"></div>
+
+          <div class="detail-block animate-in animate-in-delay-3">
+            <span class="detail-label">Growing Conditions</span>
+            <p class="detail-value">{{ plant_info['Growing Conditions'] }}</p>
+          </div>
+
+        {% else %}
+          <div class="details-unavailable">
+            Detailed information is not available for this plant yet.
+          </div>
+        {% endif %}
+      </div>
+
     </div>
 
-    <a class="back-link" href="/">Back to Selection</a>
+    <div style="text-align:center;">
+      <a class="back-link" href="javascript:history.back()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M11 7H3M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Results
+      </a>
+    </div>
+
+  </div>
 </body>
 </html>
